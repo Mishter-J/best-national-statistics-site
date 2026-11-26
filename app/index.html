@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nusantara in Numbers — Indonesia Statistics Atlas</title>
+  <meta name="description" content="A fast static atlas of Indonesia: population, economy, health, education, provinces, geography and climate.">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="charts.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#overview" aria-label="Nusantara in Numbers home">
+      <svg class="brand-mark" viewBox="0 0 64 40" aria-hidden="true">
+        <circle cx="10" cy="24" r="5"></circle><circle cx="22" cy="16" r="4"></circle>
+        <circle cx="34" cy="25" r="6"></circle><circle cx="47" cy="15" r="4"></circle>
+        <circle cx="56" cy="27" r="5"></circle><path d="M8 31 C20 8 38 34 58 12"></path>
+      </svg>
+      <span>Nusantara in Numbers</span>
+    </a>
+    <nav class="site-nav" aria-label="Statistics sections">
+      <a class="nav-link is-active" href="#overview">Overview</a>
+      <a class="nav-link" href="#population">Population</a>
+      <a class="nav-link" href="#economy">Economy</a>
+      <a class="nav-link" href="#health-education">Health &amp; Education</a>
+      <a class="nav-link" href="#regions">Regions</a>
+      <a class="nav-link" href="#geography-climate">Geography &amp; Climate</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview" aria-labelledby="overview-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Indonesia statistics atlas</p>
+        <h1 id="overview-title">A country of 283.5 million, in clear figures.</h1>
+        <p class="lede">Explore the people, economy, schools, provinces and climate of Indonesia. Headline population is BPS 2024; income and output are World Bank 2024.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#regions">Browse 38 provinces</a>
+          <a class="button button-ghost" href="#economy">See the economy</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Indonesia at a glance">
+        <p class="panel-label">At a glance</p>
+        <div class="glance-grid">
+          <p><strong>283.5m</strong><span>people · BPS 2024</span></p>
+          <p><strong>US$1.41tn</strong><span>GDP · World Bank 2024</span></p>
+          <p><strong>74.2 yrs</strong><span>life expectancy · BPS 2024</span></p>
+          <p><strong>38</strong><span>provinces · BPS 2024</span></p>
+        </div>
+        <svg class="archipelago" viewBox="0 0 520 150" role="img" aria-label="Stylised archipelago dots from west to east">
+          <path d="M18 104 C96 40 150 122 226 74 C292 34 356 108 502 48"></path>
+          <circle cx="42" cy="96" r="13"></circle><circle cx="104" cy="70" r="9"></circle>
+          <circle cx="164" cy="98" r="15"></circle><circle cx="232" cy="76" r="10"></circle>
+          <circle cx="292" cy="58" r="12"></circle><circle cx="354" cy="88" r="9"></circle>
+          <circle cx="418" cy="66" r="14"></circle><circle cx="478" cy="52" r="10"></circle>
+        </svg>
+        <p class="panel-note">West to east: Sumatra, Java, Kalimantan, Sulawesi, Bali &amp; Nusa Tenggara, Maluku and Papua.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Headline indicators">
+      <div class="kpi-grid" id="headline-grid"></div>
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <p class="kicker">Overview chart</p>
+            <h2>People and prosperity</h2>
+          </div>
+          <div class="toggle-group" role="group" aria-label="Overview chart metric">
+            <button type="button" class="toggle is-active" data-overview-metric="population" aria-pressed="true">Population</button>
+            <button type="button" class="toggle" data-overview-metric="income" aria-pressed="false">GDP per capita</button>
+          </div>
+        </div>
+        <div id="overview-chart"></div>
+      </div>
+      <div class="explore-grid" id="explore-grid" aria-label="Explore sections"></div>
+    </section>
+
+    <section class="section" id="population" aria-labelledby="population-title">
+      <div class="section-head">
+        <p class="kicker">Population</p>
+        <h2 id="population-title">Young, urbanising and concentrated on Java</h2>
+        <p>Indonesia remains demographically young: 68.3% are aged 15-64 and the median age is 30.4 years (BPS 2024).</p>
+      </div>
+      <div class="two-column">
+        <div id="age-chart"></div>
+        <div id="island-chart"></div>
+      </div>
+      <div class="indicator-grid" id="population-indicators"></div>
+    </section>
+
+    <section class="section" id="economy" aria-labelledby="economy-title">
+      <div class="section-head">
+        <p class="kicker">Economy</p>
+        <h2 id="economy-title">Steady growth, led by manufacturing</h2>
+        <p>GDP grew 5.03% in 2024 after the 2020 contraction, while manufacturing contributed 18.9% of GDP (BPS 2024).</p>
+      </div>
+      <div class="two-column">
+        <div id="growth-chart"></div>
+        <div id="sector-chart"></div>
+      </div>
+      <div class="indicator-grid" id="economy-indicators"></div>
+    </section>
+
+    <section class="section" id="health-education" aria-labelledby="health-title">
+      <div class="section-head">
+        <p class="kicker">Health &amp; Education</p>
+        <h2 id="health-title">Longer lives and near-universal primary school</h2>
+        <p>Life expectancy reached 74.2 years in 2024 (BPS 2024), and primary net enrollment was 97.9% in 2023 (BPS 2023).</p>
+      </div>
+      <div class="two-column">
+        <div id="life-chart"></div>
+        <div id="enrollment-chart"></div>
+      </div>
+      <div class="indicator-grid" id="health-indicators"></div>
+    </section>
+
+    <section class="section" id="regions" aria-labelledby="regions-title">
+      <div class="section-head">
+        <p class="kicker">Regions</p>
+        <h2 id="regions-title">All 38 provinces, searchable and sortable</h2>
+        <p>Province populations are rounded BPS 2024 estimates; shares and densities are calculated from the table so the figures stay consistent.</p>
+      </div>
+      <div class="island-summary" id="island-summary"></div>
+      <div class="table-controls">
+        <label for="province-search">Search provinces</label>
+        <input id="province-search" type="search" placeholder="Try Papua, Medan or Sulawesi" autocomplete="off">
+        <p id="province-count" aria-live="polite"></p>
+      </div>
+      <div class="table-wrap">
+        <table class="province-table">
+          <caption>Population, area and density by province (BPS 2024)</caption>
+          <thead>
+            <tr>
+              <th scope="col"><button type="button" data-sort-key="name" data-sort-label="province">Province <span class="sort-mark">↕</span></button></th>
+              <th scope="col"><button type="button" data-sort-key="capital" data-sort-label="capital">Capital <span class="sort-mark">↕</span></button></th>
+              <th scope="col"><button type="button" data-sort-key="group" data-sort-label="island group">Island group <span class="sort-mark">↕</span></button></th>
+              <th scope="col"><button type="button" data-sort-key="population" data-sort-label="population">Population (m) <span class="sort-mark">↕</span></button></th>
+              <th scope="col"><button type="button" data-sort-key="share" data-sort-label="share">Share <span class="sort-mark">↕</span></button></th>
+              <th scope="col"><button type="button" data-sort-key="area" data-sort-label="area">Area (km²) <span class="sort-mark">↕</span></button></th>
+              <th scope="col"><button type="button" data-sort-key="density" data-sort-label="density">Density (/km²) <span class="sort-mark">↕</span></button></th>
+            </tr>
+          </thead>
+          <tbody id="province-table-body"></tbody>
+        </table>
+      </div>
+      <p class="table-total" id="province-total"></p>
+    </section>
+
+    <section class="section" id="geography-climate" aria-labelledby="geography-title">
+      <div class="section-head">
+        <p class="kicker">Geography &amp; Climate</p>
+        <h2 id="geography-title">An equatorial archipelago of volcanoes and rain</h2>
+        <p>Indonesia spans 1.91 million km² of land (World Bank 2023) and more than 17,000 islands (BPS 2024), with a wet season centred on January in Jakarta (BMKG climate normals).</p>
+      </div>
+      <div class="indicator-grid geography-grid" id="geography-facts"></div>
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <p class="kicker">Climate chart</p>
+            <h2>Jakarta through the year</h2>
+          </div>
+          <div class="toggle-group" role="group" aria-label="Climate chart metric">
+            <button type="button" class="toggle is-active" data-climate-metric="rainfall" aria-pressed="true">Rainfall</button>
+            <button type="button" class="toggle" data-climate-metric="temperature" aria-pressed="false">Temperature</button>
+          </div>
+        </div>
+        <div id="climate-chart"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Methods &amp; sources</strong>
+      <p>Figures are rounded for reading. Sources used on this page: BPS 2023-2024, World Bank 2023-2024, APJII 2024, BMKG climate normals, Ministry of Health 2023 and Ministry of Forestry 2023.</p>
+    </div>
+    <p>Built as a self-contained static site: no accounts, no tracking and no network requests after the files load.</p>
+  </footer>
+</body>
+</html>
